@@ -45,4 +45,4 @@ Project structure emphasizes modularity, accessibility, and maintainability, wit
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+- https://cstanfill4777.github.io/se_project_todo-app/
