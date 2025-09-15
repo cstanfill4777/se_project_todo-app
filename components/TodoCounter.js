@@ -1,11 +1,11 @@
 export default class TodoCounter {
-  constructor(counterElement, listElement) {
+  constructor(counterElement) {
     this._counterElement = counterElement;
-    this._listElement = listElement;
   }
 
-  update() {
-    const todos = this._listElement.querySelectorAll(".todo");
-    this._counterElement.textContent = todos.length;
+  update(todos) {
+    const total = todos.length;
+    const completed = todos.filter((todo) => todo.isCompleted).length;
+    this._counterElement.textContent = `${completed} / ${total}`;
   }
 }
