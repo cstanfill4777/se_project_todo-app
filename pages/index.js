@@ -9,11 +9,10 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
-const todosList = document.querySelector(".todos__list");
 
 let todos = [];
 
-const counter = new TodoCounter(".todos__counter");
+const counter = new TodoCounter(".counter__text");
 
 const handleEscClose = (evt) => {
   if (evt.key === "Escape") {
@@ -58,9 +57,13 @@ const renderTodo = (item) => {
   todoSection.addItem(todoElement);
 };
 
+const getInitialTodos = () => {
+  return initialTodos.map((item) => ({ ...item, completed: false }));
+};
+
 const todoSection = new Section(
   {
-    items: initialTodos.map((item) => ({ ...item, completed: false })),
+    items: getInitialTodos(),
     renderer: renderTodo,
   },
   ".todos__list"
@@ -97,6 +100,6 @@ addTodoForm.addEventListener("submit", (evt) => {
   updateCounter();
 });
 
-todos = initialTodos.map((item) => ({ ...item, completed: false }));
+todos = getInitialTodos();
 todoSection.renderItems();
 updateCounter();
