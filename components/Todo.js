@@ -41,6 +41,12 @@ export default class Todo {
 
     this._checkbox.checked = this._completed;
 
+    this._todoLabel = this._element.querySelector(".todo__label");
+
+    this._checkbox.id = `todo-${this._id}`;
+
+    this._todoLabel.setAttribute("for", `todo-${this._id}`);
+
     this._setEventListeners();
 
     return this._element;
